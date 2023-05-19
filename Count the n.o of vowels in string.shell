@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Enter a string:"
+read string
+
+# Convert the string to lowercase for easier vowel detection
+string=$(echo "$string" | tr '[:upper:]' '[:lower:]')
+
+# Initialize a variable to keep track of the vowel count
+count=0
+
+# Iterate through each character in the string
+for (( i=0; i<${#string}; i++ )); do
+    # Extract the current character
+    char=${string:$i:1}
+
+    # Check if the character is a vowel
+    if [[ $char =~ [aeiou] ]]; then
+        ((count++))
+    fi
+done
+
+echo "The number of vowels in the string is: $count"
