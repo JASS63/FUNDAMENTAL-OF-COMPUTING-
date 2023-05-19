@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Prompt the user for a string
+read -p "Enter a string: " input_string
+
+# Get the length of the string
+length=${#input_string}
+echo "Length of the string: $length"
+
+# Convert the string to uppercase
+uppercase_string=${input_string^^}
+echo "Uppercase string: $uppercase_string"
+
+# Convert the string to lowercase
+lowercase_string=${input_string,,}
+echo "Lowercase string: $lowercase_string"
+
+# Reverse the string
+reverse_string=$(echo "$input_string" | rev)
+echo "Reversed string: $reverse_string"
+
+# Check if the string is a palindrome
+if [[ "$input_string" == "$reverse_string" ]]; then
+  echo "The string is a palindrome."
+else
+  echo "The string is not a palindrome."
+fi
+
+# Extract the first character of the string
+first_char=${input_string:0:1}
+echo "First character of the string: $first_char"
+
+# Extract the last character of the string
+last_char=${input_string: -1}
+echo "Last character of the string: $last_char"
+
+# Replace all occurrences of a character in the string
+read -p "Enter a character to replace: " replace_char
+read -p "Enter a replacement character: " replacement_char
+replace_string=${input_string//$replace_char/$replacement_char}
+echo "String after replacement: $replace_string"
