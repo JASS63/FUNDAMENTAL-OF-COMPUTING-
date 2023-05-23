@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct 
+{
+    char name[50];
+    int age;
+    float salary;
+} Employee;
+void printEmployeeDetails(Employee* emp) {
+    printf("Employee Details:\n");
+    printf("Name: %s\n", emp->name);
+    printf("Age: %d\n", emp->age);
+    printf("Salary: %.2f\n", emp->salary);
+}
+int main() 
+{
+    Employee* emp = (Employee*)malloc(sizeof(Employee));
+    if (emp == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+    printf("Enter employee name: ");
+    scanf("%s", emp->name);
+    printf("Enter employee age: ");
+    scanf("%d", &emp->age);
+    printf("Enter employee salary: ");
+    scanf("%f", &emp->salary);
+    printEmployeeDetails(emp);
+    free(emp);
+    return 0;
+}
